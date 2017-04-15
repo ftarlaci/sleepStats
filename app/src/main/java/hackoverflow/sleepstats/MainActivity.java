@@ -39,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
     public void startButton(View view) {
         Calendar c = Calendar.getInstance();
         startTime = c.getTime();
+        System.out.println("Start Button Pushed");
+        System.out.println(startTime.toString());
     }
 
     /**
@@ -50,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
     public void stopButton(View view) {
         Calendar c = Calendar.getInstance();
         endTime = c.getTime();
+        System.out.println("Stop Button");
+        System.out.println(endTime.toString());
         totalTime = parseTotalTime();
     }
 
@@ -72,6 +76,8 @@ public class MainActivity extends AppCompatActivity {
         different = different % minutesInMilli;
 
         double totalTime = elapsedHours + (elapsedMinutes/60.0);
+
+        System.out.println ("total Time: "+ Double.toString(totalTime));
 
         return totalTime;
     }

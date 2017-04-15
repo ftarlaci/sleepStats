@@ -21,15 +21,17 @@ public class EffectsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_effects);
         openOrCreateDatabase("sleepDB", MODE_PRIVATE, null);
+        System.out.println("Opening up new database");
 
         //initializes database
         db = openOrCreateDatabase("My Cities", MODE_PRIVATE, null);
         Cursor tablesCursor = db.rawQuery(
-                "SELECT * FROM sqlite_master WHERE type='table' AND name='cities';",
+                "SELECT * FROM sqlite_master WHERE type='table' AND name='effects';",
                 null);
         if (tablesCursor.getCount() == 0){
             setUpDatabase();
         }
+        System.out.println("Initializing database");
 
         //retrieves and interprets hours slept
         Intent intent = getIntent();
@@ -55,7 +57,7 @@ public class EffectsActivity extends AppCompatActivity {
         String symptomStr;
         String adviceStr;
 
-        String cmd = "SELECT overview, symptom, advice FROM effects WHERE bracket = ?;";
+        String cmd = "SELECT * FROM effects WHERE bracket = ?;";
 
         Cursor cur = db.rawQuery(cmd, new String[]{Integer.toString(roundedTimeVal)});
         overviewStr = cur.getString(cur.getColumnIndex("overview"));
