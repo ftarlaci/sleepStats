@@ -1,1 +1,1 @@
-INSERT INTO effects (bracket, overview, symptom, advice) VALUES (3,'You slept for about three hours','bad things will happen to you','you should get more sleep');
+INSERT INTO effects (bracket, overview, symptom, advice) VALUES (2,"You slept for about two hours","bad things will happen to you","you should get more sleep");

@@ -30,9 +30,9 @@ public class EffectsActivity extends AppCompatActivity {
         Cursor tablesCursor = db.rawQuery(
                 "SELECT * FROM sqlite_master WHERE type='table' AND name='effects';",
                 null);
-        if (tablesCursor.getCount() == 0){
+//        if (tablesCursor.getCount() == 0){
             setUpDatabase();
-        }
+//        }
         System.out.println("Initializing database");
 
         //retrieves and interprets hours slept
@@ -59,13 +59,15 @@ public class EffectsActivity extends AppCompatActivity {
         String symptomStr;
         String adviceStr;
 
+        System.out.println("Rounded time val is: "+roundedTimeVal);
         String cmd = "SELECT * FROM effects WHERE bracket = "+roundedTimeVal+";";
 
         Cursor cur = db.rawQuery(cmd, null);
-        overviewStr = cur.getString(1);
-        System.out.println("Got overview string")
-        symptomStr = cur.getString(2);
-        adviceStr = cur.getString(3);
+
+        overviewStr = cur.getString(cur.getColumnIndex("overview"));
+        System.out.println(overviewStr);
+        symptomStr = cur.getString(cur.getColumnIndex("symptom"));
+        adviceStr = cur.getString(cur.getColumnIndex("advice"));
 
         //adds information to view
         //TODO: update using textview ids.
@@ -76,11 +78,12 @@ public class EffectsActivity extends AppCompatActivity {
      */
     private void setUpDatabase(){
         //creates table
-        String setupStr = "CREATE TABLE effects ("
-                + "bracket INTEGER, overview TEXT, symptom TEXT, advice TEXT,"
-                + "_id INTEGER PRIMARY KEY AUTOINCREMENT"
-                + ");";
-        db.execSQL(setupStr);
+        //todo: un comment this--currently disabled in order to reinitialize db contents each time
+//        String setupStr = "CREATE TABLE effects ("
+//                + "bracket INTEGER, overview TEXT, symptom TEXT, advice TEXT,"
+//                + "_id INTEGER PRIMARY KEY AUTOINCREMENT"
+//                + ");";
+//        db.execSQL(setupStr);
 
         //initialize values in table
         Scanner scan = new Scanner(getResources()
@@ -89,6 +92,7 @@ public class EffectsActivity extends AppCompatActivity {
         while (scan.hasNextLine()) { // build and execute queries
             query += scan.nextLine() + "\n";
             if (query.trim().endsWith(";")) {
+                System.out.println("query: " + query);
                 db.execSQL(query);
                 query = "";
             }
