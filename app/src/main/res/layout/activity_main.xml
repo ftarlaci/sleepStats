@@ -8,69 +8,35 @@
     android:paddingLeft="0dp"
     android:paddingRight="0dp"
     android:paddingTop="0dp"
+    android:background="@drawable/sleepStats_background_main"
     tools:context="hackoverflow.sleepstats.MainActivity"
+    android:gravity="center|bottom"
     android:orientation="vertical">
 
-    <!--<TextView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="Hello World!" />-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="start tracking"
+        android:background="@drawable/start_button"
+        android:layout_width="225dp"
+        android:layout_height="67dp"
         android:id="@+id/startButton"
-        android:layout_weight="0.0"
-        android:onClick="startButton"/>
+        android:onClick="startButton"
+        android:layout_marginTop="39dp"
+        android:layout_margin="20dp"
+        android:layout_centerHorizontal="true" />
 
-        <EditText
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/startTimerEditText"
-            android:layout_weight="0.25"
-            android:maxWidth="0.70dp"
-            android:maxLines="1"/>
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="stop tracking"
+    <Button
+        android:layout_width="225dp"
+        android:layout_height="67dp"
+            android:background="@drawable/stop_button"
             android:id="@+id/stopButton"
-            android:layout_weight="0.0"
             android:onClick="stopButton"/>
+    <Button
+        android:layout_width="225dp"
+        android:layout_height="67dp"
+        android:background="@drawable/analyze_button"
+        android:id="@+id/effectsButton"
+        android:onClick="effectsButton"
+        android:layout_margin="20dp"
+        />
 
-        <EditText
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/stopTimerEditText"
-            android:layout_weight="0.25"
-            android:maxWidth="0.70sp"
-            android:maxLines="1"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="EFFECTS ON YOUR BRAIN"
-            android:id="@+id/effectsButton"
-            android:layout_weight="0.0"
-            android:onClick="effectsButton"/>
-    </LinearLayout>
-
-    </LinearLayout>
+</LinearLayout>
