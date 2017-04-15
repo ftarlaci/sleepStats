@@ -1,1 +1,12 @@
 INSERT INTO effects (bracket, overview, symptom, advice) VALUES (2,"You slept for about two hours","bad things will happen to you","you should get more sleep");
+INSERT INTO effects (bracket, overview, symptom, advice) VALUES (3,"You slept for about three hours","bad things will happen to you","you should get more sleep");
+INSERT INTO effects (bracket, overview, symptom, advice) VALUES (4,"You slept for about four hours","bad things will happen to you","you should get more sleep");
+INSERT INTO effects (bracket, overview, symptom, advice) VALUES (5,"You slept for about five hours","bad things will happen to you","you should get more sleep");
+INSERT INTO effects (bracket, overview, symptom, advice) VALUES (6,"You slept for about six hours","bad things will happen to you","you should get more sleep");
+INSERT INTO effects (bracket, overview, symptom, advice) VALUES (7,"You slept for about seven hours","bad things will happen to you","you should get more sleep");
+INSERT INTO effects (bracket, overview, symptom, advice) VALUES (8,"You slept for about eight hours","bad things will happen to you","you should get more sleep");
+INSERT INTO effects (bracket, overview, symptom, advice) VALUES (9,"You slept for about nine hours","bad things will happen to you","you should get more sleep");
+INSERT INTO effects (bracket, overview, symptom, advice) VALUES (10,"You slept for about ten hours","bad things will happen to you","you should get more sleep");
+INSERT INTO effects (bracket, overview, symptom, advice) VALUES (11,"You slept for about eleven hours","bad things will happen to you","you should get more sleep");
+INSERT INTO effects (bracket, overview, symptom, advice) VALUES (12,"You slept for about twelve hours","bad things will happen to you","you should get more sleep");
+INSERT INTO effects (bracket, overview, symptom, advice) VALUES (13,"You slept for about thirteen hours","bad things will happen to you","you should get more sleep");
