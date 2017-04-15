@@ -6,6 +6,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import java.util.Scanner;
+
 public class EffectsActivity extends AppCompatActivity {
 
     SQLiteDatabase db;
@@ -57,12 +59,13 @@ public class EffectsActivity extends AppCompatActivity {
         String symptomStr;
         String adviceStr;
 
-        String cmd = "SELECT * FROM effects WHERE bracket = ?;";
+        String cmd = "SELECT * FROM effects WHERE bracket = "+roundedTimeVal+";";
 
-        Cursor cur = db.rawQuery(cmd, new String[]{Integer.toString(roundedTimeVal)});
-        overviewStr = cur.getString(cur.getColumnIndex("overview"));
-        symptomStr = cur.getString(cur.getColumnIndex("symptom"));
-        adviceStr = cur.getString(cur.getColumnIndex("advice"));
+        Cursor cur = db.rawQuery(cmd, null);
+        overviewStr = cur.getString(1);
+        System.out.println("Got overview string")
+        symptomStr = cur.getString(2);
+        adviceStr = cur.getString(3);
 
         //adds information to view
         //TODO: update using textview ids.
@@ -80,6 +83,15 @@ public class EffectsActivity extends AppCompatActivity {
         db.execSQL(setupStr);
 
         //initialize values in table
-        //TODO: run insert commands here
+        Scanner scan = new Scanner(getResources()
+                .openRawResource(R.raw.initialize));
+        String query = "";
+        while (scan.hasNextLine()) { // build and execute queries
+            query += scan.nextLine() + "\n";
+            if (query.trim().endsWith(";")) {
+                db.execSQL(query);
+                query = "";
+            }
+        }
     }
 }
