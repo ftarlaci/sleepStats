@@ -8,7 +8,7 @@
     android:paddingLeft="0dp"
     android:paddingRight="0dp"
     android:paddingTop="0dp"
-    android:background="@drawable/sleepStats_background_main"
+    android:background="@drawable/sleepstats_background_main"
     tools:context="hackoverflow.sleepstats.MainActivity"
     android:gravity="center|bottom"
     android:orientation="vertical">
