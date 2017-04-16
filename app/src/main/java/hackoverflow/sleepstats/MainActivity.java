@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+
 import java.util.Calendar;
 import java.util.Date;
 
@@ -41,6 +43,10 @@ public class MainActivity extends AppCompatActivity {
         startTime = c.getTime();
         System.out.println("Start Button Pushed");
         System.out.println(startTime.toString());
+
+        Button startBt = (Button) findViewById(R.id.startButton);
+        startBt.setText(startTime.toString());
+        startBt.setTextSize(12);
     }
 
     /**
@@ -55,6 +61,10 @@ public class MainActivity extends AppCompatActivity {
         System.out.println("Stop Button");
         System.out.println(endTime.toString());
         totalTime = parseTotalTime();
+
+        Button endBt = (Button) findViewById(R.id.stopButton);
+        endBt.setText(endTime.toString());
+        endBt.setTextSize(12);
     }
 
     private double parseTotalTime(){

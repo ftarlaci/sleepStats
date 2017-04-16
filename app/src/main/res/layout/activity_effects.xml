@@ -25,11 +25,16 @@
             android:textColor="@android:color/white"/>
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height ="wrap_content"
                 android:id="@+id/overviewField"
+                android:textSize="15dp"
+                android:background="#33ffffff"
+                android:padding="8dp"
+                android:textColor="@android:color/white"
                 />
         </ScrollView>
         <TextView
@@ -40,11 +45,16 @@
             android:textColor="@android:color/white"/>
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height ="wrap_content"
                 android:id="@+id/symptomsField"
+                android:textSize="15dp"
+                android:background="#33ffffff"
+                android:padding="8dp"
+                android:textColor="@android:color/white"
                 />
         </ScrollView>
         <TextView
@@ -55,11 +65,16 @@
             android:textColor="@android:color/white"/>
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height ="wrap_content"
                 android:id="@+id/adviceField"
+                android:textSize="15dp"
+                android:background="#33ffffff"
+                android:padding="8dp"
+                android:textColor="@android:color/white"
                 />
         </ScrollView>
     </LinearLayout>

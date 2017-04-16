@@ -8,35 +8,57 @@
     android:paddingLeft="0dp"
     android:paddingRight="0dp"
     android:paddingTop="0dp"
-    android:background="@drawable/sleepstats_background_main"
+    android:background="@drawable/sleepstats_background"
     tools:context="hackoverflow.sleepstats.MainActivity"
     android:gravity="center|bottom"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:weightSum="1">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/sleepstats_logo"
+        android:id="@+id/imageView"
+        android:layout_weight="1"/>
 
-    <Button
-        android:background="@drawable/start_button"
-        android:layout_width="225dp"
-        android:layout_height="67dp"
-        android:id="@+id/startButton"
-        android:onClick="startButton"
-        android:layout_marginTop="39dp"
-        android:layout_margin="20dp"
-        android:layout_centerHorizontal="true" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="bottom|center"
+        android:layout_weight="3">
 
-    <Button
-        android:layout_width="225dp"
-        android:layout_height="67dp"
-            android:background="@drawable/stop_button"
+        <Button
+            android:background="#33ffffff"
+            android:textSize="30dp"
+            android:textColor="#ffffff"
+            android:text = "Start"
+            android:layout_width="225dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/startButton"
+            android:onClick="startButton"
+            android:layout_marginTop="39dp"
+            android:layout_margin="20dp"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:background="#33ffffff"
+            android:textSize="30dp"
+            android:textColor="#ffffff"
+            android:text="STOP"
+            android:layout_width="225dp"
+            android:layout_height="wrap_content"
             android:id="@+id/stopButton"
             android:onClick="stopButton"/>
-    <Button
-        android:layout_width="225dp"
-        android:layout_height="67dp"
-        android:background="@drawable/analyze_button"
-        android:id="@+id/effectsButton"
-        android:onClick="effectsButton"
-        android:layout_margin="20dp"
-        />
+        <Button
+            android:layout_width="225dp"
+            android:layout_height="67dp"
+            android:background="@drawable/analyze_button"
+            android:id="@+id/effectsButton"
+            android:onClick="effectsButton"
+            android:layout_margin="20dp"
+            />
+
+    </LinearLayout>
 
 </LinearLayout>

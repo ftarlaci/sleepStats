@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import java.util.Scanner;
 
@@ -27,13 +28,12 @@ public class EffectsActivity extends AppCompatActivity {
 
         //initializes database
         db = openOrCreateDatabase("My Cities", MODE_PRIVATE, null);
-        Cursor tablesCursor = db.rawQuery(
+       Cursor tablesCursor = db.rawQuery(
                 "SELECT * FROM sqlite_master WHERE type='table' AND name='effects';",
                 null);
-//        if (tablesCursor.getCount() == 0){
+        if (tablesCursor.getCount() == 0){
             setUpDatabase();
-//        }
-        System.out.println("Initializing database");
+        }
 
         //retrieves and interprets hours slept
         Intent intent = getIntent();
@@ -49,6 +49,7 @@ public class EffectsActivity extends AppCompatActivity {
      * value and adding relevant information from database
      */
     private void updateActivity (double totalTimeVal){
+        System.out.println("Initializing database");
         //rounds totalTimeVal to nearest bracket
         int roundedTimeVal = (int) Math.round(totalTimeVal);
         if (roundedTimeVal > MAX_SLEEP) roundedTimeVal = MAX_SLEEP;
@@ -60,17 +61,23 @@ public class EffectsActivity extends AppCompatActivity {
         String adviceStr;
 
         System.out.println("Rounded time val is: "+roundedTimeVal);
-        String cmd = "SELECT * FROM effects WHERE bracket = "+roundedTimeVal+";";
+        String cmd = "SELECT * FROM effects WHERE bracket ="+roundedTimeVal+";";
 
         Cursor cur = db.rawQuery(cmd, null);
 
+        cur.moveToFirst();
         overviewStr = cur.getString(cur.getColumnIndex("overview"));
         System.out.println(overviewStr);
         symptomStr = cur.getString(cur.getColumnIndex("symptom"));
         adviceStr = cur.getString(cur.getColumnIndex("advice"));
 
         //adds information to view
-        //TODO: update using textview ids.
+        TextView overView = (TextView) findViewById(R.id.overviewField);
+        overView.setText(overviewStr);
+        TextView symptonView = (TextView) findViewById(R.id.symptomsField);
+        symptonView.setText(symptomStr);
+        TextView adviceView = (TextView) findViewById(R.id.adviceField);
+        adviceView.setText(adviceStr);
     }
 
     /**
@@ -78,12 +85,11 @@ public class EffectsActivity extends AppCompatActivity {
      */
     private void setUpDatabase(){
         //creates table
-        //todo: un comment this--currently disabled in order to reinitialize db contents each time
-//        String setupStr = "CREATE TABLE effects ("
-//                + "bracket INTEGER, overview TEXT, symptom TEXT, advice TEXT,"
-//                + "_id INTEGER PRIMARY KEY AUTOINCREMENT"
-//                + ");";
-//        db.execSQL(setupStr);
+        String setupStr = "CREATE TABLE IF NOT EXISTS effects ("
+                + "bracket INTEGER, overview TEXT, symptom TEXT, advice TEXT,"
+                + "_id INTEGER PRIMARY KEY AUTOINCREMENT"
+                + ");";
+        db.execSQL(setupStr);
 
         //initialize values in table
         Scanner scan = new Scanner(getResources()
